@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Report for duty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id=report>
+    <h1>Welcome</h1>
+	<div><form id="userdata">
+	  <p><label for="rank">Rank</label><br>
+	  <select id="rank" name="rank">
+	    <option value="Ensign">Ensign</option>
+		<option value="Lieutenant Jr">Lieutenant Jr</option>
+		<option value="Lieutenant">Lieutenant</option>
+		<option value="Lieutenant Commander">Lieutenant Commander</option>
+		<option value="Commander">Commander</option>
+		<option value="Captain">Captain</option>
+		<option value="Admiral">Admiral</option>
+	  </select></p>
+	  <p><label for="fname">First name:</label><br>
+	  <input type="text" id="fname" name="fname"><span id="fnameError"></span></p>
+	  <p><label for="lname">Last name:</label><br>
+	  <input type="text" id="lname" name="lname"><span id="lnameError"></span></p>
+	  <p><label for="pos">Position</label><br>
+	  <select id="pos" name="pos">
+	    <option value="Command">Command</option>
+	    <option value="Helm">Helm</option>
+		<option value="Engineering">Engineering</option>
+		<option value="OPS">OPS</option>
+		<option value="Security">Security</option>
+		<option value="Science">Science</option>
+		<option value="Medical">Medical</option>
+	  </select></p>
+	  <p><label for="ship">Reporting for ship</label><br>
+	  <select id="ship" name="ship">
+	    <option value="0">U.S.S. Cerritos</option>
+	    <option value="1">U.S.S. Defiant</option>
+		<option value="2">U.S.S. Enterprise</option>
+		<option value="3">U.S.S. Voyager</option>
+	  </select></p>
+	<input class="button lilac" onclick="setVars()" type="button" value="Report">
+	<input class="button gold right" type="reset" value="Clear">
+	</form>
+	</div>
+</div>
+
+<script>
+function validateForm() {
+  let fname = document.forms["userdata"]["fname"].value;
+  let lname = document.forms["userdata"]["lname"].value;
+  if (fname == "") {
+    document.getElementById("fnameError").innerHTML = "Please state your full name";
+	document.getElementById("fname").classList.add("error");
+    return false;
+  } else if (lname == "") {
+  document.getElementById("fnameError").innerHTML = "";
+  document.getElementById("fname").classList.remove("error");
+  document.getElementById("lnameError").innerHTML = "Please state your full name";
+  document.getElementById("lname").classList.add("error");
+  } else {
+  return true;}
+}
+function setVars(){
+	if (validateForm()) {
+	udata = document.getElementById("userdata");
+	sessionStorage.setItem("user", "active");
+	sessionStorage.setItem("rank", userdata.elements[0].value);
+	sessionStorage.setItem("fname", userdata.elements[1].value);
+	sessionStorage.setItem("lname", userdata.elements[2].value);
+	sessionStorage.setItem("pos", userdata.elements[3].value);
+	sessionStorage.setItem("ship", userdata.elements[4].value);
+
+	location.href = "terminal.html";}
+}
+</script>
+
+</body>
+</html>
