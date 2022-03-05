@@ -1,0 +1,205 @@
+* {
+	font-family: 'Roboto Condensed', sans-serif;
+	/*background-color: #000000;*/
+}
+
+body {
+	background-color: #000000;
+}
+
+#top {
+	position: absolute;
+	top: -0.05em;
+	background-color: transparent;
+	color: #000000;
+	font-weight: bold;
+}
+
+#report, #terminal {
+	border-style: solid;
+	border-width: 1.5em;
+	border-color: #9a99ff;
+	border-radius: 3em;
+	padding: 1em;
+	color: #ffffff;
+}
+
+#userdata {
+	width: 90%;
+	margin: auto;
+}
+
+#fnameError, #lnameError {
+	color: #cc6666;
+}
+
+.error {
+	border: solid 3px;
+	border-color: #cc6666;
+}
+
+input, select {
+	background-color: #f8fbdb;
+	border-radius: 5px;
+	border: none;
+	width: 100%;
+	height: 1.5em;
+	font-size: 1.05em;
+	margin: 4px 2px;
+	box-sizing: border-box;
+}
+
+option {
+	background-color: #f8fbdb;
+}
+
+.button {
+	border-radius: 20px;
+	border: none;
+	width: 45%;
+	height: 2.5em;
+	padding: 0.5em 0.5em 0.25em;
+	text-align: right;
+	margin: 0.25 em 0.5em;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.lilac {
+	background-color: #9999ff;
+}
+
+.gold {
+	background-color: #ff9900;
+}
+
+.peach {
+	background-color: #ff9966;
+}
+
+.right {
+	float: right;
+}
+
+.lgtext {
+	font-size: 1.25em;
+}
+
+.ptext {
+	color: #ff9966;
+}
+
+.gtext {
+	color: #ff9900;
+}
+
+.ltext {
+	color: #9999ff;
+}
+
+#screen {
+	height: 14em;
+}
+
+#sensors {
+	color: #ff9900;
+}
+
+#controls {
+	margin-top: 1em;
+}
+
+#bottom {
+	color: #ff9900;
+	font-size: 2em;
+	font-weight: bold;
+	float: right;
+	margin-right: 1em;
+}
+
+/*** Main content ends ***/
+
+/*** Media queries ***/
+/** New guidelines say there is no need to specify breakpoint for extra small devices.
+Esentially, write basic layout for extra small devices then use breakpoints to switch on larger devices **/
+
+/********** Large devices only **********/
+@media (min-width: 992px) {
+	
+#report {
+	width: 30em;
+	margin: auto;
+	border-width: 2em;
+}
+
+#terminal {
+	width: 75%;
+	margin: auto;
+}
+ 
+#controls {
+	position: relative;
+}
+ 
+#bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+#report {
+	width: 30em;
+	margin: auto;
+	border-width: 2em;
+ }
+ 
+#terminal {
+	width: 75%;
+	margin: auto;
+}
+
+ #screen {
+	height: 16.5em;
+}
+ 
+ #controls {
+	position: relative;
+}
+ 
+#bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+}
+
+/********** Small devices only **********/
+@media (min-width: 576px) and (max-width: 767px) {
+	#report {
+	width: 30em;
+	margin: auto;
+ }
+ 
+ #screen {
+	height: 17.25em;
+}
+
+ #controls {
+	position: relative;
+}
+ 
+#bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+}
+
+}

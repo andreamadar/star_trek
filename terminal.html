@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Terminal 187</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+	/*if user is not signed in, redirect to report.html*/
+	(function (window) {
+	  if (sessionStorage.user == undefined){
+	  	location.href="index.html";
+	  } 
+	})(window);
+
+	</script>
+	<script type="text/javascript" src="data.json"></script>
+	<script type="text/javascript" src="loadships.js"></script>
+</head>
+<body>
+<div id=terminal class="container">
+<div class="row">
+<div class="col-sm">
+<div id="top"></div>
+  <div id="screen"></div>
+  <div id="heading"></div>
+  <div id ="sensors"></div>
+  
+ </div>
+  <script>
+    /* load ship data */
+	load(sessionStorage.ship);
+	/* load start screen */
+	startScreen();
+	/* load sensor data */
+	sensors();
+ </script>
+ 
+  <div id="controls" class="col-sm">
+  <input class="button lilac" onclick="info()" type="button" value="2133-262">
+  <input class="button peach" onclick="heading()" type="button" value="8368-921">
+    <input class="button gold" onclick="sensors()" type="button" value="3084-092">
+    <input class="button lilac" onclick="signOff()" type="button" value="8561-490">
+	<div id="bottom">Data node 187</div>
+  </div>
+  </div>
+ </div>
+
+
+</body>
+</html>
