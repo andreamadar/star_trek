@@ -65,7 +65,7 @@ function startScreen() {
   
 function signOff() {
 	sessionStorage.clear();
-	location.href="report.html";
+	location.href="index.html";
 }
 
 function sensors() {
