@@ -10,8 +10,9 @@ body {
 #top {
 	position: absolute;
 	top: -0.05em;
-	background-color: transparent;
-	color: #000000;
+	background-color: #000000;
+	color: #ff9900;
+	font-size: 1.2em;
 	font-weight: bold;
 }
 

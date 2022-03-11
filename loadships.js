@@ -1,10 +1,11 @@
 function load(serial) {
-	var shipdata = JSON.parse(data);
-	var shipname = shipdata[serial].name;
-  var shipreg = shipdata[serial].registry;
-  var shipclass = shipdata[serial].classification;
-  document.getElementById("top").innerHTML = "<p>" + shipreg + " " + shipname + "</p>";
+	let shipdata = JSON.parse(data);
+	let shipname = shipdata[serial].name;
+	let shipreg = shipdata[serial].registry;
+	let shipclass = shipdata[serial].classification;
+	return {shipname, shipreg, shipclass};
 }
+
 
 const currentDate = new Date();
 
@@ -52,6 +53,8 @@ function startScreen() {
 	greeting = setGreeting();
 	stardate = calculateStardate();
 	shiplocation = getLocation();
+	terminalType = sessionStorage.pos.toUpperCase();
+	document.getElementById("top").innerHTML = "<p>&nbsp;" + terminalType + "&nbsp;</p>"
   document.getElementById("screen").innerHTML = 
   "<p class='lgtext'>" + greeting + " " + sessionStorage.rank + " " + sessionStorage.lname + "</p>"
   + "<p>Stardate: " + stardate + "</p>" 
@@ -62,7 +65,7 @@ function startScreen() {
   
 function signOff() {
 	sessionStorage.clear();
-	location.href="index.html";
+	location.href="report.html";
 }
 
 function sensors() {
@@ -76,16 +79,21 @@ function sensors() {
 
 function info() {
   document.getElementById("screen").innerHTML = "<p class='lgtext'>" + sessionStorage.rank + " " + sessionStorage.lname + ", "+ sessionStorage.fname 
-  + " - " + sessionStorage.pos + "</p>"
-  + "<p>Terminal info </p><p><span class='ptext'>8368-921:</span> Current heading</p><p><span class='gtext'>3084-092:</span> Refresh sensor readings</p><p><span  class='ltext'>8561-490:</span> Sign off</p>";
+  + "</p>"
+  + "<p>Terminal info </p><p><span class='ptext'>8368-921:</span> Ship info </p><p><span class='gtext'>3084-092:</span> Refresh sensor readings</p><p><span  class='ltext'>8561-490:</span> Sign off</p>";
 }
 
 /* calculate heading */
 function heading() {
+	let shipdata = load(sessionStorage.ship);
+	let shipname = shipdata.shipname,
+	 shipreg = shipdata.shipreg,
+	 shipclass = shipdata.shipclass;
 	var azimuth = Math.floor(Math.random() * 360);
 	var elevation = Math.floor(Math.random() * 270);
 	document.getElementById("screen").innerHTML = "<p class='lgtext'>" + sessionStorage.rank + " " + sessionStorage.lname + ", "+ sessionStorage.fname 
-	+ " - " + sessionStorage.pos + "</p>"
+	+ "</p>"
+	+ "<p>Registry: " + shipreg + "</p>" + "<p>Name: " + shipname + "</p>" + "<p>Classification: " + shipclass + "</p>"
 	+ "<p>Current heading: " + azimuth + ", Mark " + elevation + "</p>";
 }
 

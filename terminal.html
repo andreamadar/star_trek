@@ -13,7 +13,7 @@
 	/*if user is not signed in, redirect to report.html*/
 	(function (window) {
 	  if (sessionStorage.user == undefined){
-	  	location.href="index.html";
+	  	location.href="report.html";
 	  } 
 	})(window);
 
@@ -33,7 +33,7 @@
  </div>
   <script>
     /* load ship data */
-	load(sessionStorage.ship);
+	/*load(sessionStorage.ship)*/;
 	/* load start screen */
 	startScreen();
 	/* load sensor data */
